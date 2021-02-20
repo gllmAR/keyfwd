@@ -8,6 +8,8 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "bundle:win32": "electron-packager . --platform win32 --arch ia32 --out out/ ",
+    "bundle:win64": "electron-packager . --platform win32 --arch x64 --out out/ ",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
@@ -30,7 +32,7 @@
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "darwin"
+            "darwin", "linux"
           ]
         },
         {
