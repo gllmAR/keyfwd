@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <meta charset = "UTF-8">
+      <title>keyfwd</title>
+   </head>
+
+   <body>
+      OSC PORT:<span id="osc_port"> </span> <br>
+      <button style="height: 1em;" id="activity"> </button> <span id="log"></span> 
+   </body>
+
+   <script defer>
+   let electron = require('electron');
+   
+   electron.ipcRenderer.on('msg_port', (event, message) => 
+   {
+      document.getElementById("osc_port").innerHTML = message;
+      //console.log(message) 
+   })
+
+   electron.ipcRenderer.on('incoming', (event, message) => 
+   {
+      document.getElementById("log").innerHTML = message;
+      document.getElementById("activity").toggleAttribute("disabled");
+      //console.log(message) 
+   })
+</script>
+</html>
